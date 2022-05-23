@@ -4,6 +4,9 @@ let dimensionArreglo: number = Number(
 );
 let arreglo: number[] = new Array(dimensionArreglo);
 let indice: number;
+let contadorCero: number = 0;
+let contadorPositivos: number = 0;
+let contadorNegativos: number = 0;
 
 for (indice = 0; indice < dimensionArreglo; indice++) {
   arreglo[indice] = Number(
@@ -12,19 +15,17 @@ for (indice = 0; indice < dimensionArreglo; indice++) {
   console.log(
     `El número ingresado en la posición ${indice} es: ${arreglo[indice]}`
   );
-}
-if (arreglo[indice] === 0) {
-  let cero: number = 0;
-  cero++;
-  console.log(`La cantidad de ceros es: ${cero}`);
-} else {
-  if (arreglo[indice] > 0) {
-    let positivo: number = 0;
-    positivo++;
-    console.log(`La cantidad de positivos es: ${positivo}`);
-  } else {
-    let negativo: number = 0;
-    negativo++;
-    console.log(`La cantidad de negativos es: ${negativo}`);
+
+  if (arreglo[indice] === 0) {
+    contadorCero++;
   }
+  if (arreglo[indice] > 0) {
+    contadorPositivos++;
+  }
+  if (arreglo[indice] < 0) {
+    contadorNegativos++;
+  }
+  console.log(`Se ingreso ${contadorCero} ceros`);
+  console.log(`Se ingreso ${contadorPositivos} positivos`);
+  console.log(`Se ingreso ${contadorNegativos} negativos`);
 }
